@@ -12,28 +12,27 @@ app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
+app.get('/',async (req,res)=>{
+
+    res.send('Welcome');
+})
+
 app.get('/string/size/:str',async (req,res)=>{
     var a = req.params.str;
 
-    res.send(`The size of string ${a} is ${a.length}.`);
+    res.send(`The size of string '${a}' is ${a.length}.`);
 })
 
 app.get('/string/concat/:str1/:str2',async (req,res)=>{
     var output = req.params.str1.concat(req.params.str2);
-    res.send(`String 1 = ${req.params.str1}, String 2 = ${req.params.str2},  
-    Output: ${output}`);   
+    res.send(`String 1 = ${req.params.str1}, String 2 = ${req.params.str2} | Output: ${output}`);   
 })
 
-app.get('/number/add/:n1/:n2',async (req,res)=>{
-    var n1 = parseInt(req.params.n1);
-    var n2 = parseInt(req.params.n2);
-    var sum = n1+n2;
-
-    res.send(`Sum of ${n1} and ${n2} = ${sum}.`);
-})
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log(`Server Running on port: ${PORT}`);
 });
+
+module.exports = app;
