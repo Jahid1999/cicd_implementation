@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false}));
 
 app.get('/',async (req,res)=>{
 
-    res.send('Welcome');
+    res.send('Welcome to String world. Created by Jahid');
 })
 
 app.get('/string/size/:str',async (req,res)=>{

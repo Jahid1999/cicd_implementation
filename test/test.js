@@ -2,8 +2,8 @@ const request = require("supertest");
 const app = require("../index");
 
 describe("GET /", () => {
-    it("responds with Welcome", (done) => {
-        request(app).get("/").expect("Welcome", done);
+    it("responds with Welcome to String world. Created by Jahid", (done) => {
+        request(app).get("/").expect("Welcome to String world. Created by Jahid", done);
     })
 });
 
